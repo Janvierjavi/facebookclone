@@ -1,0 +1,17 @@
+
+<div class="card">
+  <div class="card-header"> <%= @facepost.content %></div>
+  <div class="card-body">
+    <%= image_tag @facepost.image, style:"height: 200px; width: 200px;" %>
+<% unless @facepost.user_id == current_user.id %>
+  <% if @favorite.present? %>
+    <%= link_to 'Cancel favorite', favorite_path(id: @favorite.id), method: :delete, class: 'btn btn-danger' %>
+  <% else %>
+    <%= link_to 'Make it a favorite', favorites_path(facepost_id: @facepost.id), method: :post, class: 'btn btn-primary' %>
+  <% end %>
+<% end %></div>
+  <div class="card-footer"><%= link_to 'Edit', edit_facepost_path(@facepost), class: "btn btn-info" %> 
+  <%= link_to 'Confirm post', faceposts_path, class: "btn btn-success" %></div>
+</div>
+
+

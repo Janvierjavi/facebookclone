@@ -1,0 +1,2 @@
+module FacepostsHelper
+end

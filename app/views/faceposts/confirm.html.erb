@@ -1,0 +1,12 @@
+<h1>confirmation screen</h1>
+<%= form_with(model: @facepost, url: facepost_path, local: true) do |form| %>
+  <!-- Description for displaying the uploaded image on the confirmation screen -->
+  <%= image_tag(@facepost.image.url) if @facepost.image && @facepost.image.url %>
+  <%= form.hidden_field :image_cache %>
+  <%= form.submit "Post" %>
+<% end %>
+
+<%= form_with(model:@facepost, url:new_facepot_path, local:true, method:"get") do |form| %>
+  <%= form.hidden_field :image_cache %>
+  <%= form.submit "Return", name: "confirm" %>
+<% end %>

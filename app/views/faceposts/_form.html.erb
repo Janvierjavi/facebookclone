@@ -1,0 +1,31 @@
+<div class="form-group">
+<%= form_with(model: facepost, local: true) do |form| %>
+  <% if facepost.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(facepost.errors.count, "error") %> prohibited this facepost from being saved:</h2>
+
+      <ul>
+      <% facepost.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div class="card" style="width: 30rem; " >
+  <div class="card-header"><div class="field">
+  <%= form.text_area :content, id: :facepost_content, class: "form-control" %>
+</div></p></div>
+  <div class="card-body"><div class="field " style="width: 30rem; " >
+  <%= form.hidden_field :image_cache %>
+  <%= image_tag(@facepost.image.url) if @facepost.image && @facepost.image.url %>
+  <%= form.file_field :image, id: :facepost_image  %>
+</div></div> 
+  <div class="card-footer"><div class="actions">
+  <%= form.submit %>
+</div</div>
+</div>
+ 
+<% end %>
+</div>

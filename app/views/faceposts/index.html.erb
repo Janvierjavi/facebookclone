@@ -1,0 +1,29 @@
+
+<div class="container" style="width: 30rem;">
+<h1>Faceposts</h1>
+<%= link_to ' Create New Facepost', new_facepost_path , class: "btn btn-primary"%>
+    <% @faceposts.each do |facepost| %>
+      <div class="card" style="width: 30rem; " >
+  <div class="card-header"> <% @user.each do |user| %>
+
+    <% if facepost.user_id == user.id %>
+    <%=  user.name %>
+    <% end %>
+    <% end %></div>
+  <div class="card-body"><%= facepost.content %> <br>
+  <%= image_tag facepost.image, class:"" , style:"height: 100px; width: 100px;" %></div>
+  <div class="card-footer"><div class="row">
+  <%= link_to 'Show', facepost, class:"col-sm-3"%>
+  <%= link_to 'Edit', edit_facepost_path(facepost), class:"col-sm-3" %>
+  <%= link_to 'Destroy', facepost, method: :delete, data: { confirm: 'Are you sure?' }, class:"col-sm-3" %>
+  
+  </div></div>
+</div>
+        
+    <% end %>
+<br>
+
+</div>
+
+
+ 

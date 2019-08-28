@@ -1,0 +1,28 @@
+ .content{
+    position: relative;
+    bottom: 50px;
+    left:300px;
+    height: 100%; 
+}
+.content p {
+    position: relative;
+    float: left;
+    right: 200px;
+} 
+.sp{
+    position: relative;
+    bottom: 60px;
+    left:100px;
+    height: 100%;
+}
+.part{
+    position: relative; 
+    left:100px;
+}
+.parts{
+    position: absolute; 
+  left: 100px;
+}
+
+
+
